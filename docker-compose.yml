@@ -6,12 +6,14 @@ services:
       - ./express-app:/app
     ports:
       - 3000:3000
+    depends_on:
+      - db
   db:
     image: mysql:5.7
     volumes:
       - db-volume:/var/lib/mysql
+      - ./initdb.d:/docker-entrypoint-initdb.d
     environment:
-      MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: sample_db
       MYSQL_ROOT_PASSWORD: password
       TZ: 'Asia/Tokyo'

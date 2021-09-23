@@ -10,7 +10,7 @@ RUN npm install
 
 # DockerfileのあるディレクトリからWORKDIRへコピー
 COPY ./express-app/ .
-
+RUN chmod 755 ./start.sh
 EXPOSE 3000
 
-CMD [ "npm", "start" ]
+CMD ["./start.sh" ]

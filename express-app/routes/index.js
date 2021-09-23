@@ -4,10 +4,10 @@ const mysql = require('mysql');
 
  // MySQLへの接続
 const con = mysql.createConnection({
-host: 'db',
-user: 'root',
-password: 'password',
-database: 'sample_db'
+  host: 'db',
+  user: 'root',
+  password: 'password',
+  database: 'sample_db'
 });
 
 con.connect(function(err) {
@@ -17,7 +17,7 @@ con.connect(function(err) {
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  const sql = "select * from sampledata"
+  const sql = "select * from sample_data;"
   con.query(sql, function (err, result, fields) {
     if (err) throw err;
       res.send(result);
