@@ -20,7 +20,11 @@ router.get('/', function(req, res, next) {
   const sql = "select * from sample_data;"
   con.query(sql, function (err, result, fields) {
     if (err) throw err;
-      res.send(result);
+      const data = {
+        title: 'Express on Docker',
+        db_datas: result
+      }
+      res.render('index', data);
   });
 });
 
